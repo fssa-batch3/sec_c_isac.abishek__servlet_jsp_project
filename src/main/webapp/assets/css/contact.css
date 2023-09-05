@@ -1,0 +1,86 @@
+@charset "ISO-8859-1";
+/* stylesheet for contact page  */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Merienda', cursive;
+        background-color: #6C3DD9;
+    
+    /*background-image: url(../images/circle-scatter-haikei2.png);*/
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    font-family: 'Merienda', cursive;
+   padding-top: 100px;
+    /* display: flex; */
+    /* align-items: center;
+    justify-content: center; */
+     /* margin-left: 300px; */
+      /* position: absolute; */
+    /* left: 200px; */
+   
+    /* top:200px; */
+}
+form{
+background-color: white;
+display: flex;
+flex-direction: column;
+padding: 20px 40px;
+width: 20%;
+border-radius: 10px;
+height: 600px;
+margin: auto;
+}
+form h3{
+    color: #6C3DD9;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+form input, form textarea{
+    border: 0;
+    margin: 10px 0;
+    padding: 20px;
+    outline: none;
+    background-color: #6C3DD9;
+    font-size: 16px;
+           color: white;
+}
+form input::placeholder{
+    color:  white;
+    font-family: 'Merienda', cursive;
+}
+form textarea::placeholder{
+    color:  white;
+    font-family: 'Merienda', cursive;
+}
+form button{
+    padding: 10px;
+    background: #6C3DD9;
+    color:whitesmoke;
+    font-size: 18px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    width: 150px;
+    margin: 20px auto 0;
+    border-radius: 30px;
+    font-family: 'Merienda', cursive;
+}
+
+#voice{
+    /* position: absolute; */
+    /* top: 0px; */
+    z-index: 3;
+    /* left: 500px; */
+    font-size: 10px;
+    width: 300px;
+}
