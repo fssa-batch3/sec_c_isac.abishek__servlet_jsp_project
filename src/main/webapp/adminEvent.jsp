@@ -112,7 +112,7 @@ button:hover {
 </head>
 <body>
 	<h1>Admin Page</h1>
-   <a href="UpdateRequestServlet"><h1>See Requests</h1></a> 
+   <a href="adminViewRequest.jsp"><h1>See Requests</h1></a> 
 	<table>
 		<thead>
 			<tr>
@@ -129,50 +129,37 @@ button:hover {
 			</tr>
 		</thead>
 		<tbody>
-			<%
-			List<Event> eventList = (List<Event>) request.getAttribute("eventList");
-			if (eventList != null) {
-				for (Event ele : eventList) {
-			%>
-			<tr>
-				<td><img src="<%=ele.getImageUrl()%>" alt="Event 1"></td>
-				<td><%=ele.getEventName()%></td>
-				<td><%=ele.getEventLocation()%></td>
-				<td><%=ele.getAboutEvent()%></td>
-				<td><%=ele.getEventDateSql()%></td>
-				<td><%=ele.getContactNumber()%></td>
-				<td><button onclick="openEditPopup()">Edit</button></td>
-				<td><a href="ProductServlet?id=<%=ele.getEventId()%>"><button>
-							View products in
-							<%=ele.getEventName()%></button></a></td>
-				<td><button>Delete</button></td>
-			</tr>
-			<%
-			}
-			} else {
-			%>
-			<p>Null</p>
-			<%
-			}
-			%>
+			
 		</tbody>
 	</table>
 	<div class="button-container">
-		<button>Add Event</button>
+		<button onclick="openEditPopup()">Add Event</button>
 
 	</div>
 
 	<!-- Edit Popup -->
 	<div class="popup" id="editPopup">
 		<div class="popup-content">
-			<h2>Edit Event</h2>
-			<form>
+			<form method="post" action="AddEventServlet">
 				<label for="editTitle">Event Title:</label> <input type="text"
-					id="editTitle" name="editTitle"><br>
+					id="editTitle" name="EventName"><br>
+					<br> <label for="eventOrganizer">Event Organizer:</label> <input
+					type="text" id="eventOrganizer" name="eventOrganizer"><br>
+				<br>
 				<br> <label for="editDescription">Event Description:</label> <input
-					type="text" id="editDescription" name="editDescription"><br>
+					type="text" id="EventDescription" name="eventDescription"><br>
 				<br> <label for="editImage">Event Image URL:</label> <input
-					type="text" id="editImage" name="editImage"><br>
+					type="text" id="EventImage" name="EventImage"><br>
+				<br>
+				<br> <label for="eventLocation">Event Location:</label> <input
+					type="text" id="eventLocation" name="eventLocation"><br>
+				<br>
+				
+				<br> <label for="eventContact">Event Contact:</label> <input
+					type="text" id="eventContact" name="eventContact"><br>
+				<br>
+				<br> <label for="eventDate">Event Date:</label> <input
+					type="date" id="eventDate" name="eventDate"><br>
 				<br>
 				<div class="button-container">
 					<button type="submit">Submit</button>
@@ -193,5 +180,8 @@ button:hover {
 			popup.style.display = "none";
 		}
 	</script>
+	
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="./assets/js/adminViewEvent.js"></script>
 </body>
 </html>

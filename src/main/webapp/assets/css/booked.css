@@ -1,0 +1,44 @@
+/* style sheet for booked hospital page  */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Merienda', cursive;
+    
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    
+}
+
+/* button  */
+.join {
+    cursor: pointer;
+    background-color:#6C3DD9;
+    color: white;
+    font-weight: 500;
+    position: relative;
+    padding: 20px 85px;
+    border: none;
+    margin-top: 40px; 
+    animation-name: slide;
+    animation-duration: 2s;
+}
+.join:hover{
+    background-color: #f2f2ff;
+    color: #6C3DD9;
+    border: 1px solid #6C3DD9;
+    padding: 18px 83px;
+}
+@keyframes slide{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity:1
+    }
+}

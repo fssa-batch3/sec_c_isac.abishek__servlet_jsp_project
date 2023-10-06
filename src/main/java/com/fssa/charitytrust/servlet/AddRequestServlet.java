@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,19 +48,27 @@ public class AddRequestServlet extends HttpServlet {
 		String eventName =request.getParameter("place");
 		String product =request.getParameter("product");
 		String contact =request.getParameter("contactNumber");
-		long contactNum= Long.parseLong(contact);
-		ProductRequest productRequest = new ProductRequest(eventName,product,contactNum);
+		
+		ProductRequest productRequest = new ProductRequest(eventName,product,contact);
 		ProductRequestValidator productRequestValidator =new ProductRequestValidator();
 		ProductRequestDao productRequestDao= new ProductRequestDao();
 		ProductRequestService productRequestService = new ProductRequestService(productRequestValidator, productRequestDao);
 		PrintWriter out = response.getWriter();
 		try {
+			
 			productRequestService.addproductRequest(productRequest);
-			out.println("Susseccfully added your request");
+			out.println("Successfully added request");
+			
+			request.setAttribute("SuccessMsg", "Adeed request");
+			
+			
 		} catch(Exception e) {
+			request.setAttribute("ErrorMsg", e.getMessage());
+			System.out.println(e.getMessage());
 			out.println(e.getMessage());
 			
 		}
+	
 		doGet(request, response);;
 	}
 

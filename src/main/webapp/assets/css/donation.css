@@ -1,0 +1,96 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    color: #6C3DD9;
+    font-family: 'Merienda', cursive;
+    background-image: url(../images/circle-scatter-haikei.png);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    width: 900px;
+     background-color: #ffffff;
+     /* display: flex;
+   justify-content: space-between; */
+    /* margin: auto; */
+    margin-top: 20px;
+    margin-left: 50px;
+   border-radius: 20px;
+    padding: 50px;
+    padding-bottom: 0px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.5);
+    /* display: block; */
+    z-index: -1;
+}
+.book{
+    margin-top: 150px;
+
+}
+.donateimg{
+    margin-top: 100px;
+    position: absolute;
+    top:200px;
+    left: 530px;
+}
+.bookimg{
+    position: absolute;
+    top:200px;
+    left: 530px;
+}
+h1 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+#name,
+#email,
+#amount,
+#creditcard,
+#mobile,
+#card,
+#calender{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    font-family: 'Merienda', cursive;
+    max-width: 400px;
+}
+
+#submit {
+    margin-top: 20px;
+    padding: 10px 80px;
+    background-color: #6C3DD9;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    max-width: 400px;
+    margin-left: 500px;
+    margin-bottom: 50px;
+}
+
+#submit:hover {
+    background-color: #5025b3;
+}
+
+i {
+    font-size: 30px;
+    /* margin-left: 35px; */
+}

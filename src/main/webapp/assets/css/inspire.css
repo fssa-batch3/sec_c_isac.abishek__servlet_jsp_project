@@ -1,0 +1,145 @@
+/* stylesheet for inspire  */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    
+    margin: 0px;
+    font-family: 'Merienda', cursive;
+    background-image: url(../images/bodybg.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+}
+.sec1h1 {
+    background-image: linear-gradient(rgb(4, 9, 30, 0.7), rgb(4, 9, 30, 0.7)), url(../images/Happy\ disabled\ athlete\ running\ in\ park.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: 0%;
+    background-repeat: no-repeat;
+    min-height: 30vh;
+    text-align: center;
+    font-size: 40px;
+    padding-top: 150px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: white;
+    letter-spacing: 1px;
+}
+@media screen and (max-width:600px) {
+    .sec1h1 {
+        background-color:rgb(42, 42, 71);
+        background-attachment: fixed;
+        background-size: 800px;
+        background-position: top,center;
+        background-repeat: no-repeat;
+        min-height: 15vh;
+        text-align: center;
+        font-size: 20px;
+        padding-top: 150px;
+        text-transform: uppercase;
+        font-weight: 400;
+        color: white;
+        letter-spacing: 1px;
+    }
+}
+/* animation*/
+.sec1h1 h1{
+    background: url(../images/back.png);
+    color: transparent;
+    -webkit-text-stroke: 0.50px white;
+    -webkit-background-clip: text;
+    background-position: 0 0;
+    animation:back 20s linear infinite;
+}
+@keyframes back{
+    100%{
+        background-position: 2000px 0;
+    }
+}
+.sec2{
+    background-image: linear-gradient(rgb(4, 9, 30, 0.7), rgb(4, 9, 30, 0.7)), url(../images/nick2.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #f2f2ff;
+}
+ h2{
+    padding-top:100px;
+text-align: center;
+animation-name: slide;
+animation-duration: 2s;
+}
+ p{
+    text-align: center;
+    animation-name: slide;
+    animation-duration: 2s;
+}
+@keyframes slide{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity:1
+    }
+}
+iframe{
+   
+    margin-top: 100px;
+    border-radius: 20px;
+  
+}
+
+
+
+.nick{
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+    font-size: 50px;
+    font-weight: bold;
+    padding-left: 20px;
+    text-shadow: 2px 2px gray;
+}
+.nickyt{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-bottom: 40px;
+}
+.nick h3{
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.nick img{
+    border-radius: 50%;
+}
+.sec3{
+    background-image: linear-gradient(rgb(4, 9, 30, 0.7), rgb(4, 9, 30, 0.7)), url(../images/steve.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #f2f2ff;
+}
+.sec4{
+    background-image: linear-gradient(rgb(4, 9, 30, 0.7), rgb(4, 9, 30, 0.7)), url(../images/Mariyappan.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #f2f2ff;
+}
+.sec5{
+    background-image: linear-gradient(rgb(4, 9, 30, 0.7), rgb(4, 9, 30, 0.7)), url(../images/jesica.webp);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #f2f2ff;
+}

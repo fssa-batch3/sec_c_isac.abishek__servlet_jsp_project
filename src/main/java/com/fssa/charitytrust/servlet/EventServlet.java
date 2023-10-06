@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONArray;
+
 import com.fssa.charitytrust.dao.EventDao;
 import com.fssa.charitytrust.model.Event;
 import com.fssa.charitytrust.service.EventServiceLayer;
@@ -36,26 +38,18 @@ public class EventServlet extends HttpServlet {
 			List<Event> eventList = eventService.viewEvent();
 
 			request.setAttribute("eventList", eventList);
+			JSONArray accountsJSonArray = new JSONArray(eventList);
 			
-
+        	
+			out.println(accountsJSonArray.toString());
+//			out.flush();
+		
 			
 
 		} catch (Exception e) {
 
 		}
-		String event = (String) request.getParameter("event");
-		System.out.println("event id get: "+event);
 		
-		if (event == null) {
-			// if user signed in it want to redirect to event page for now purpose it
-			// directoing to admin page
-			RequestDispatcher dis = request.getServletContext().getRequestDispatcher("/adminEvent.jsp");
-			dis.forward(request, response);
-			
-		}else {
-			RequestDispatcher dis = request.getServletContext().getRequestDispatcher("/event.jsp");
-			dis.forward(request, response);
-		}
 
 	}
 

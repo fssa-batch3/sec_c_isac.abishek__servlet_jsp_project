@@ -1,0 +1,175 @@
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Merienda', cursive;
+   
+    font-weight: bold;
+}
+.hero {
+    background-image: linear-gradient(rgb(4, 9, 30, 0.7), rgb(4, 9, 30, 0.7)), url(../images/signupvec.jpg);
+    background-size: cover;
+    background-position: center;
+   
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+#popup{
+    /* background-image: linear-gradient(rgb(4, 9, 30, 0.7), rgb(4, 9, 30, 0.7)), url(../images/signupvec.jpg); */
+	clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+	background-color: rgb(229, 227, 227);
+	color: #6C3DD9;
+	width: 100px;
+	height: 80px;
+	position: absolute;
+	top:50px;
+	left:800px;
+	z-index: 1;
+	font-size: 13px;
+	 /* margin: 0px auto; */
+	 /* margin-top: 50px; */
+}
+.form-box {
+	width: 400px;
+	height: 650px;
+	position: relative;
+	margin:6% auto;
+	background: #FFF;
+	padding: 5px;
+	overflow: hidden;
+    border-radius: 20px;
+    
+}
+
+.form-box img{
+    margin:0px;
+    /* border: 2px solid green; */
+    padding: 0px;
+    position: relative;
+    right:55px;
+    transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+
+.donarimg{
+    transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+    /* border: 2px solid green; */
+    padding: 0px;
+    position: relative;
+    left:0px;
+    bottom: 0px;
+}
+.patimg{
+    transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+    /* border: 2px solid green; */
+    padding: 0px;
+    position: relative;
+    left:0px;
+    bottom: 0px;
+    
+}
+.button-box {
+	width: 220.6px;
+	margin: 35px auto;
+	position: relative;
+	box-shadow: 0 0 20px 9px #c2aef1;
+	border-radius: 30px;
+    transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+.toggle-btn {
+	padding: 10px 30px;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	outline: none;
+	position: relative;
+    color: #6C3DD9;
+   
+}
+#btn {
+	top: 0;
+	left: 0;
+	position: absolute;
+	width: 110px;
+	height: 100%;
+	background:#b195f4;
+	border-radius: 30px;
+	transition: .5s;   
+    transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);                                                                         
+}
+
+.input-group {
+	top: 180px;
+	position: absolute;
+	width: 280px;
+	transition: .5s;
+    transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+#user{
+	margin-left: 50px;
+	margin-top: 10px;
+	
+}
+#volunteer{
+	margin-top: 10px;
+	
+}
+label{
+	color: #6C3DD9;
+}
+.input-field {
+	width: 100%;
+	padding: 10px 0;
+	margin: 5px 0;
+	border-left: 0;
+	border-top: 0;
+	border-right: 0;
+	border-bottom: 1px solid #999;
+	outline: none;
+	background: transparent;  
+                                                                                                                                                                                                
+}
+
+.submit-btn {
+	width: 85%;
+	padding: 10px 30px;
+	cursor: pointer;
+	display: block;
+	margin:  auto;
+	background:#b195f4;
+    border: 2px solid #b195f4;
+	border-radius: 30px;
+    margin-top: 40px;
+    color: #6C3DD9;
+    transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+
+#login {
+	left: 50px;
+}
+#register {
+	left: 450px;
+}
+h1{
+    /* transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55); */
+    position: relative;
+    margin-top: 0px;
+    bottom:50px;
+    text-align: center;
+    color: #6C3DD9;
+}
+h2{
+    /* transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55); */
+    position:absolute;
+    z-index: 1;
+  
+    bottom:460px;
+    left: 50px;
+    margin:auto;
+    text-align: center;
+    color: #6C3DD9;
+  
+}
+#accessblity{
+	margin-top: 20px;
+}

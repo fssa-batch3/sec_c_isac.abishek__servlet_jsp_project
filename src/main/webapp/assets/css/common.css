@@ -1,4 +1,3 @@
-@charset "ISO-8859-1";
 
 .full{
   position: relative;
@@ -7,6 +6,8 @@
   padding-bottom: 100px;
   /* border: 2px solid greenyellow; */
 }
+
+
 .inspirefull{
     position: relative;
     left: 210px;
@@ -46,10 +47,9 @@
 
 .side-nav{
   width: 250px;
-
+   background-color:white;
     overflow: hidden;
     height: 100%;
-    background-color:#f2f2ff;
     position: fixed;
     top: 0;
     left: 0;
@@ -168,6 +168,19 @@ ul{
 
 
 
+/* CSS for the overlay */
+/* nav.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Adjust the alpha value for transparency
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* Make sure the overlay appears above other content 
+} */
 
 
 

@@ -18,7 +18,7 @@ import com.fssa.charitytrust.validator.ProductValidator;
 /**
  * Servlet implementation class DeleteServlet
  */
-@WebServlet("/DeleteServlet")
+@WebServlet("/DeleteProductServlet")
 public class DeleteProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

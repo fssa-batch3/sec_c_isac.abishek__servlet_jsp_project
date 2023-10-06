@@ -1,0 +1,94 @@
+/* style sheet for govt svcheme page  */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    
+    font-family: 'Merienda', cursive;
+    background-image: url(../images/bodybg.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+/*navbarends*/
+.sec1h1 {
+    background-image: linear-gradient(rgb(4, 9, 30, 0.7), rgb(4, 9, 30, 0.7)), url(../images/govtschemebg.jpg);
+    background-attachment: fixed;
+    background-size: 1510px;
+    background-position: top;
+    background-repeat: no-repeat;
+    min-height: 30vh;
+    text-align: center;
+    font-size: 40px;
+    padding-top: 150px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: white;
+    letter-spacing: 1px;
+}
+/* animation*/
+.sec1h1 h1{
+    background: url(../images/back.png);
+    color: transparent;
+    -webkit-text-stroke: 0.50px white;
+    -webkit-background-clip: text;
+    background-position: 0 0;
+    animation:back 20s linear infinite;
+}
+@keyframes back{
+    100%{
+        background-position: 2000px 0;
+    }
+}
+
+table,
+td,
+th {
+    border: 1px solid #ddd;
+    text-align: left;
+    animation: new;
+    animation-duration: 2s;
+
+}
+@keyframes new{
+    0%{
+        transform: translateX(1500px);opacity: 0;
+    }
+    100%{
+        transform: translate(0px);opacity: 1;
+    
+    }
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 15px;
+}
+
+tr:nth-child(odd) {
+    background-color: #d4c1ff;
+}
+th{
+    background-color: #6C3DD9;
+    color: white;
+}
+td{
+    border: 2px solid gray;
+}
+table{
+    width:1150px;
+    margin: 90px;
+    margin-left: 0px;
+    border: 2px solid gray;
+    margin-right: 50px;
+}

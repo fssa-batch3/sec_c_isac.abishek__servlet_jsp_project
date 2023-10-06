@@ -55,6 +55,7 @@ public class ProductServlet extends HttpServlet {
 		}
 		
 		String event = (String) request.getParameter("event");
+		String eventName= (String) request.getParameter("EventName");
 		System.out.println("event id get: "+event);
 		
 		if (event == null) {
