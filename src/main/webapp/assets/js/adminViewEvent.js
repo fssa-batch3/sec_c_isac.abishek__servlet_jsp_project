@@ -27,10 +27,10 @@
 				<td>${e["eventDateSql"]}</td>
 				<td>${e["contactNumber"]}</td>
 				<td><button onclick="openEditPopup()">Edit</button></td>
-				<td><a href="ProductServlet?id="+${e["eventId"]}><button>
+				<td><a href="ProductServlet?id=${e["eventId"]}"><button>
 							View products in
 							</button></a></td>
-				<td><a href="DeleteEventServlet?EventName="+${e["eventName"]}><button>Delete</button></a></td>
+				<td><a href="DeleteEventServlet?EventName=${e["eventName"]}"><button>Delete</button></a></td>
 			</tr>`;
 		  })
 		  sec2.innerHTML = eventData;

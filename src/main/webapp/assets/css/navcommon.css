@@ -1,186 +1,78 @@
 @charset "ISO-8859-1";
 
-.full{
+.menu-bar {
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+  background-color: #fff;
+
+}
+nav{
+	position: sticky;
+  top: 0px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  z-index:2;
+}
+
+.menu-bar img {
+  margin-left: 100px;
+}
+
+.menu-bar ul {
+  display: flex;
+}
+
+.menu-bar ul li {
   position: relative;
-  left: 290px;
-  width: 1190px;
-  padding-bottom: 100px;
-  /* border: 2px solid greenyellow; */
-}
-/* CSS for the overlay */
-/* CSS for the overlay */
-
-.inspirefull{
-    position: relative;
-    left: 210px;
-    width: 1190px;
-    padding-bottom: 100px;
-    /* border: 2px solid greenyellow; */
-  }
-.abtusfull{
-    position: relative;
-    left: 210px;
-    width: 1170px;
-    padding-bottom: 100px;
-}
-.govtfull{
-    position: relative;
-    left: 300px;
-    width: 900px;
-    padding-bottom: 100px;
-    /* border: 2px solid greenyellow; */
-}
-.donationfull{
-    position: relative;
-    left: 300px;
-    width: 900px;
-    padding-bottom: 100px;
-    /* border: 2px solid greenyellow; */
+  margin-right: 30px;
+  list-style: none;
+  font-size: 18px;
+  padding-top: 6px;
+  font-weight: 400;
 }
 
-
-.tablework{
-    position: relative;
-    left: 210px;
-    width: 1000px;
-    padding-bottom: 100px;
-    margin-top: 100px;
+.menu-bar ul li::after {
+  content: '';
+  display: block;
+  background-color: #6C3DD9;
+  height: 2px;
+  width: 0%;
+  margin: auto;
+  transition: 0.5s;
 }
 
-.side-nav{
-  width: 250px;
-
-    overflow: hidden;
-    height: 100%;
-    background-color:#f2f2ff;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 20px 40px;
-    padding-left: 0px;
-    transition: 0.5s;
-    display: flex;
-    flex-direction: column;
- z-index: 1;
-   
-}
-/* .side-nav:hover{
-    
-} */
-.logo{
-    display: flex;
-    margin-bottom: 30px;
+.menu-bar ul li:hover::after {
+  width: 100%;
 }
 
-.navlinks{
-    list-style: none;
-    position: relative;
-}
-/*.navlinks {
-    position: relative;
-    top:20px;
-}*/
-.navlinks li{
-    padding: 10px 0;
+.menu-bar ul li a {
+  font-size: 20px;
+  text-decoration: none;
+  color: #6C3DD9;
 }
 
-.navlinks li a{
-    color: #6C3DD9;
-    text-decoration: none;
-    padding: 20px 14px;
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    font-size: 20px;
-
-}
-.navlinks li a i{
-    font-size: 22px;
-    white-space: nowrap;
-    margin-right: 20px;
+/* dropdown menu style */
+.dropdown-menu {
+  display: none;
 }
 
-.active{
-    background-color: #6C3DD9;
-    width:100%;
-    height:47px;
-    position: absolute;
-    left: 6%;
-    top:3% ;
-    z-index: -1;
-    border-radius: 6px;
-    box-shadow:0 5px 10px rgba(255, 255, 255, 0.4) ;
-    display: none;
-    transition: top 0.5s;
+.menu-bar ul li:hover .dropdown-menu {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 90%;
 }
 
-.navlinks li:hover a{
-    color: white;
-    transition: 0.3s; 
-}
-.navlinks li:hover i{
-   transform: rotate(360deg);
-    transition: 0.3s; 
-}
-.navlinks li:hover ~ .active{
-    display: block;
+.menu-bar ul li:hover .dropdown-menu ul {
+  margin: 10px;
 }
 
-/*nav a:focus {
-    /* Add styling to the focused navigation link */
- /* Example color */
-  /*  border:none;
-    color: white;
-    outline: none; /* Remove default focus outline */
-  /*  background:#6C3DD9;
-    
-    
-    
-}*/
-
-.navlinks li:nth-child(1):hover ~ .active{
-    top:3%
+.menu-bar ul li:hover .dropdown-menu ul li {
+  width: 120px;
 }
-.navlinks li:nth-child(2):hover ~ .active{
-    top:16%
-}
-.navlinks li:nth-child(3):hover ~ .active{
-    top:28%
-}
-.navlinks li:nth-child(4):hover ~ .active{
-    top:41%
-}
-.navlinks li:nth-child(5):hover ~ .active{
-    top:53%
-}
-.navlinks li:nth-child(6):hover ~ .active{
-    top:65%
-}
-.navlinks li:nth-child(7):hover ~ .active{
-    top:78%
-}
-.navlinks li:nth-child(8):hover ~ .active{
-    top:90.5%
-}
-.side-nav img{
-     margin-left: 30px;
-}
-i{
-    padding-right: 30px;
-    padding-left: 30px;
-   /* width: 60px; */
-   color: black;
-   transition: 1s;
-}
-/* i:hover{
-    transform: rotate(360deg);
-} */
-ul{
-    margin-top: 20px;
-}
-
-
-
 
 
 

@@ -12,18 +12,19 @@
       function sendEmailToAdmin(){
 		   let phone = document.getElementById("phone").value;
 	
-		  emailjs.send("service_mo678eb","template_rky3ibl",{
+		  emailjs.send("service_jdtbojn","template_rky3ibl",{
           Contact: phone,
           
            Event: place.toString(),
            Product:product.toString(),
          }).then(function (res){
 			 
-			 
+			 swal("success!", "success", "success");
+			  let sent = new SpeechSynthesisUtterance("message sent to us... You will redirect to index page we wil contact you soon");
 			 const intervalId = setInterval(() => {
              delayedAction();
              clearInterval(intervalId); // Stop the interval after the first execution
-             }, 5000); 
+             }, 10000); 
 		 })
 		 .catch(
 			function(e){
@@ -46,11 +47,11 @@
              // handle success
                  console.log(response.data);
                  if(response.data.trim()=="Successfully added request"){
-					 swal("success!", response.data, "success");
-					  //sendEmailToAdmin();
+					 
+					  sendEmailToAdmin();
 				 }
 				 else{
-					  swal("error!", "Invalid Number", "error");
+					  swal("error!", response.data, "error");
 				 }
               
                }) 

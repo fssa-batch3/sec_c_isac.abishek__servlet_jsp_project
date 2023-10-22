@@ -445,6 +445,8 @@ body {
   border: 2px solid #6C3DD9;
   transform: scale(1.1);
 }
+
+
 @media screen and (max-width:600px) {
   .main4 {
     background-image: linear-gradient(rgb(4, 9, 30, 0.7), rgb(4, 9, 30, 0.7)), url(https://iili.io/J9Xja5v.jpg);
@@ -619,3 +621,8 @@ body {
 }
 
 }
+
+
+
+
+  

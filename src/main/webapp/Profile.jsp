@@ -4,8 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
- <link rel="stylesheet" href="/charitytrust-webapp/assets/css/navcommon.css">
+<title>Profile</title>
   <link rel="stylesheet" href="/charitytrust-webapp/assets/css/profile.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -16,11 +15,14 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://kit.fontawesome.com/98f622c388.js"
 	crossorigin="anonymous"></script>
-	 <link rel="stylesheet" href="assets/css/header.css">
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
+
+
  <div class="profile">
+
+ 
   <div class="imgcontainer">
    
     <img src="/charitytrust-webapp/assets/images/aniyuki-sad-anime-avatar-image-32.jpg" alt="" width="200px" >
@@ -63,8 +65,9 @@
     <button id="activity" style="font-size: 11px;">My activities</button>
 
    </div>
+
  </div>
- <input type="text" id="message" style="margin-left: 300px;">
+<!--  <input type="text" id="message" style="margin-left: 300px;"> -->
  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
  <script src="/charitytrust-webapp/assets/js/profile.js"></script>
  <script src="./assets/js/EditProfile.js"></script>

@@ -3,16 +3,12 @@
  text.addEventListener("click",e=>{
     voice()
  })
- console.log("isac");
 function voice() {
-    // count++
-    console.log("isac");
-    // console.log(count);
 let SpeechRecognition 
 SpeechRecognition= SpeechRecognition || webkitSpeechRecognition;
 let recognition = new SpeechRecognition();
 // let input=document.querySelectorAll("input")
-let input=document.getElementById("message")
+let input=document.getElementById("phone")
 console.log(input);        
 // This runs when the speech recognition service starts
 recognition.onstart = function() {
@@ -27,10 +23,9 @@ recognition.onspeechend = function() {
 // This runs when the speech recognition service returns result
 recognition.onresult = function(event) {
     let transcript = event.results[0][0].transcript;
-    // let confidence = event.results[0][0].confidence;
-        // document.getElementById("message").innerText=transcript;
        let won=transcript.toLowerCase()
-         input.value=won
+       let stringWithoutDot = won.toString().replace('.', '');
+         input.value=stringWithoutDot
 };        
 // start recognition
 recognition.start();
@@ -41,7 +36,7 @@ hear.addEventListener("click",e=>{
     hearbtn()
 })
 function hearbtn() {
-    let vrr=document.getElementById("message").value
+    let vrr=document.getElementById("phone").value
     if(vrr==null){
         let iam = new SpeechSynthesisUtterance("not recorded yet");
   speechSynthesis.speak(iam);

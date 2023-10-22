@@ -26,7 +26,7 @@
     </section>
     <div class="full govtfull">
     <section class="sec2">
-        <table><caption>govt scehems</caption>
+        <table>
             <tr>
               <th>State / UTs Name</th>
               <th>Disability Type</th>

@@ -51,23 +51,14 @@ td,
 th {
     border: 1px solid #ddd;
     text-align: left;
-    animation: new;
-    animation-duration: 2s;
 
 }
-@keyframes new{
-    0%{
-        transform: translateX(1500px);opacity: 0;
-    }
-    100%{
-        transform: translate(0px);opacity: 1;
-    
-    }
-}
+
 
 table {
     border-collapse: collapse;
     width: 100%;
+   
 }
 
 th,
@@ -88,7 +79,6 @@ td{
 table{
     width:1150px;
     margin: 90px;
-    margin-left: 0px;
+    margin-left: 180px;
     border: 2px solid gray;
-    margin-right: 50px;
 }

@@ -9,8 +9,7 @@
 body {
     font-family: 'Merienda', cursive;
     margin: 0px;
-
-    background-image: url(../images/circle-scatter-haikei3.png);
+        background-image: url(https://iili.io/J9XXQ8x.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -73,7 +72,6 @@ body {
     padding: 20px 65px;
     border: none;
     margin-top: 80px;
-
     border-radius: 20px;
     position: relative;
     right: 0px;
@@ -118,11 +116,14 @@ body {
 
 .dropdown1 {
     margin-top: 75px;
-
+    margin-left:30px;
     height: 100px;
     width: 500px;
 }
 
+.dropdown1 a{
+    text-decoration:none;
+}
 
 
 
@@ -135,7 +136,7 @@ body {
 
 .hos1 {
     display: flex;
-    justify-content: space-evenly;
+    /*justify-content: space-evenly;*/
     padding-top: 40px;
     padding-bottom: 60px;
     animation-name: slide;
@@ -143,6 +144,7 @@ body {
 }
 
 .hos1 img {
+	margin-left:150px;
     border-radius: 20px;
     transition: 0.5s;
     animation-duration: 2s;
@@ -152,7 +154,7 @@ body {
 
 .hos1 p {
     padding-top: 10px;
-    margin-left: 120px;
+    margin-left: 150px;
     width: 500px;
     font-family: 'Merienda', cursive;
     font-size: 20px;
@@ -161,9 +163,7 @@ body {
     animation-duration: 2s;
 }
 
-.contactholder {
-    width: 800px;
-}
+
 
 span {
     color: #6C3DD9;

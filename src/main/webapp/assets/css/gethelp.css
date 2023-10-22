@@ -104,8 +104,7 @@ body {
     background-color: white;
     color: #6C3DD9;
     font-weight: 500;
-    position: relative;
-    left: 70px;
+   
     padding: 20px 85px;
     border: none;
     margin-top: 80px;
@@ -113,9 +112,18 @@ body {
     animation-duration: 2s;
     border-radius: 20px;
 }
+#btn1{
+	 margin-left: 100px;
+}
+#btn2{
+	 margin-left: 120px;
+}
+#btn3{
+	 margin-left: 130px;
+}
 .helptypes {
    
-    background-image: url(../images/circle-scatter-haikei\ \(1\).png);
+    background-color:#6C3DD9;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -135,8 +143,8 @@ body {
 .helptypes p {
     text-align: center;
     color: white;
-    position: relative;
-    top: 30px;
+    
+    margin-top: 30px;
     animation-name: slide;
     animation-duration: 2s;
 }
@@ -157,20 +165,19 @@ body {
 }
 
 .medicinfo h1 {
-    position: relative;
-    top: 150px;
+   
+    margin-top: 150px;
     margin-left: 100px;
     font-weight: 400;
     color: #6C3DD9;
 }
 
 .medicinfo p {
-    position: relative;
-    top: 280px;
+    
     text-align: center;
-    height: 250px;
     font-size: 25px;
     margin: 0px 100px;
+    margin-top: 70px;
     color: #6C3DD9;
     text-shadow: 1px 1px rgb(124, 118, 118);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -178,8 +185,7 @@ body {
 
 .medicimgs {
     display: flex;
-    position: relative;
-    top: 180px;
+    margin-top: 70px;
     overflow-x: scroll;
     overflow-y: hidden;
 }
@@ -211,39 +217,33 @@ animation-duration: 8s;
 }
 
 #hrgt {
-    position: relative;
-    top: 230px;
+    margin-top: 100px;
 }
 
 .productinfo h1 {
-    position: relative;
-    margin-top: 235px;
     margin-left: 100px;
     font-weight: 400;
     color: white;
-    padding-top: 40px;
 }
 
 .productinfo {
-    
-    background-image: url(../images/circle-scatter-haikei\ \(1\).png);
+    background-color:#6C3DD9;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-    height: 800px;
+    height: 600px;
     /* z-index: -1; */
-    position: relative;
-    top: 300px;
+  
+    margin-top: 70px;
 }
 
 .productinfo p {
-    position: relative;
-    top: 80px;
+  
     text-align: center;
-    height: 250px;
     font-size: 25px;
     margin: 0px 100px;
+      margin-top: 120px;
     color: white;
     text-shadow: 1px 1px rgb(124, 118, 118);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -253,7 +253,7 @@ animation-duration: 8s;
 .productsimgs {
     display: flex;
     position: relative;
-    top: 20px;
+    top: 50px;
     overflow-x: scroll;
 
     overflow-y: hidden;
@@ -303,78 +303,25 @@ animation-duration: 4s;
     background-image: linear-gradient(rgb(4, 9, 30, 0.7), rgb(4, 9, 30, 0.7)), url(../images/medical-camp.jpg);
     background-attachment: fixed;
     background-position: center;
-    background-size: 1587px;
-    min-height: 100vh;
-    position: relative;
-    top: 300px;
+    
+    
 }
 
 .govtinfo h1 {
-    position: relative;
-    top: 150px;
     margin-left: 100px;
     font-weight: 400;
-    color: #6C3DD9;
+    color: white;
+    padding-top:40px;
 }
 
 .govtinfo p {
-    position: relative;
     text-shadow: 1px 1px rgb(124, 118, 118);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    top: 280px;
+    
     text-align: center;
     height: 220px;
     font-size: 25px;
-    margin: 0px 100px;
+    margin: 50px 100px;
     color: white;
 }
 /* footer  */
-#footer{
-    position: relative;
-   top: 250px;
-}
-footer {
-   background-image: url(../images/footer1.png);
-    padding-top: 50px;
-    /* z-index: -1; */
-}
-.foot1 {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 100px 0px 160px;
-    color: white;
-}
-.fb img {
-    padding-left: 15px;
-}
-.foot2 {
-    display: flex;
-    justify-content: space-between;
-    margin: 0px 100px 0px 160px;
-    color: white;
-}
-.foot2p p {
-    font-weight: 500;
-    padding-top: 20px;
-}
-.foot22p {
-    display: flex;
-}
-.foot22p p {
-    padding-left: 60px;
-    padding-top: 20px;
-    font-weight: 500;
-    margin-bottom: 50px;
-}
-.foot3 {
-    display: flex;
-    justify-content: space-between;
-    color: white;
-    margin: 30px 100px 0px 160px;
-}
-.add p {
-    padding-left: 30px;
-}
-.mail p {
-    padding-left: 30px;
-}

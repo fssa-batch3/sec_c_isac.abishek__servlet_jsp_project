@@ -31,6 +31,7 @@
 
   <jsp:include page="header.jsp"></jsp:include>
   <div class="container">
+  <img src="https://iili.io/JFDRTpp.gif" alt="contact us" width="800px">
     <form>
       <!-- onsubmit="sendemail(); reset(); return false;" -->
 
@@ -63,5 +64,95 @@
     %>
      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
    <script src="assets/js/contact.js"></script>
+  <!-- <script src="assets/js/screenreader.js"></script>
+  <script src="assets/js/contentreader.js"></script>
+    <script src="assets/js/autospeech.js"></script>
+
+
+  <script>
+    let cnt = -1;
+    let tags;
+    let tag_length = 0;
+
+
+    let cnts = -1;
+    let tag;
+    let tags_length = 0;
+
+    document.onkeydown = function (event) {
+      if (event.keyCode == 39) {
+        if (cnt < tag_length && cnt >= -1) {
+          cnt++;
+
+        }
+        screenreader_selector(".side-nav a", cnt, "You reached the end")
+
+      }
+
+      if (event.keyCode == 37) {
+        if (cnt > -1) {
+          cnt--;
+        }
+        // console.log(cnt+": 2")
+        screenreader_selector(".side-nav a", cnt, "You are on the top")
+
+      }
+      if (event.keyCode == 40) {
+        if (cnts < tags_length && cnts >= -1) {
+          cnts++;
+        }
+        screenreader_content("h3,button", cnts, "You reached the end")
+
+      }
+
+      if (event.keyCode == 38) {
+        if (cnts > -1) {
+          cnts--;
+        }
+        // console.log(cnt+": 2")
+        screenreader_content("h3,button", cnts, "You are on the top")
+
+      }
+      if (event.keyCode == 13) {
+        let anchorTags = document.querySelectorAll(".side-nav a");
+        anchorTags[cnt].click();
+      }
+      if (event.keyCode == 16) {
+        let contentanchor = document.querySelectorAll("h3,button")
+        contentanchor[cnts].click();
+      }
+      if (event.keyCode == 220) {
+        let vrr = document.getElementById("message").value
+        let iam = new SpeechSynthesisUtterance(vrr);
+        speechSynthesis.speak(iam);
+
+      }
+
+    };
+
+  </script>
+
+
+  <script>
+    document.addEventListener('keydown', function (event) {
+      if (event.keyCode >= 37 && event.keyCode <= 40) {
+        event.preventDefault();
+      }
+    });
+
+
+  </script>
+   <script>
+  document.addEventListener("DOMContentLoaded", e => {
+    loader("Hi there now you are in contact page use up arrow and down arrow to navigate by hearing the command and Click the shift button to contact ")
+
+  })
+
+  document.addEventListener("dblclick", e => {
+    loader("Hi there now you are in contact page use up arrow and down arrow to navigate by hearing the command and Click the shift button to contact")
+
+  })
+</script>
+<script src="assets/js/voicetotext.js"></script>  -->
 
 </html>

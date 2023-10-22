@@ -18,11 +18,6 @@ body {
 
 
 
-   
-  
-
-
-
 /* buy bg  */
 .gethelpbg {
     background-image: linear-gradient(rgb(4, 9, 30, 0.7), rgb(4, 9, 30, 0.7)), url(../images/buybg.jpg);
@@ -72,8 +67,7 @@ body {
     background-color: #6C3DD9;
     color: white;
     font-weight: 500;
-    position: relative;
-    top:50px;
+   border-radius:20px;
     padding: 20px 75px;
     border: none;
     margin-top: 40px;
@@ -112,10 +106,15 @@ body {
 
 .products p {
     margin-top: 20px;
+    margin-bottom:50px;
+}
+.products a {
+    text-decoration:none;
 }
 
 .sec3 {
     display: flex;
     flex-wrap: wrap;
+    margin-left:200px;
 }
 

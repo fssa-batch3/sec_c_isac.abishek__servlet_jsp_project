@@ -6,34 +6,13 @@
 <head>
 <meta charset="ISO-8859-1">
   <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700;900&display=swap" rel="stylesheet">
 <title>index page</title>
 </head>
 <body>
 <!-- nav bar -->
-  <nav>
-    <div class="menu-bar">
-      <img src="https://iili.io/HyFIhoQ.png" width="200px" alt="error">
-      <ul>
-        <li><a href="index.jsp">home</a></li>
-        <li><a href="event.jsp">offering</a></li>
-        <li><a href="schemes.jsp">schemes</a></li>
-        <li><a href="donationRequest.jsp">donate</a></li>
-        <li><a href="about.jsp">about</a></li>
-        <li><a id="gethelplink">get help</a>
-
-
-        </li>
-
-
-        <li><a href="involve.jsp">get involved</a></li>
-        <li><a id="inspiredlink">be inspired</a></li>
-        <li><a id="sign">sign up</a></li>
-      </ul>
-    </div>
-  </nav>
+<jsp:include page="header.jsp"></jsp:include>
   <!-- body pages  -->
  
   <main id="data">
@@ -96,6 +75,7 @@
   </main>
  
   <jsp:include page="footer.jsp"></jsp:include>
+   <input type="text" id="message">
 </body>
     <%
     
@@ -103,7 +83,7 @@
 	String email=(String)sess.getAttribute("email");
     
     %>
-<script>
+ <script>
         const arr1 = "<%= email %>";
     let gethelp = document.getElementById("gethelplink");
     let sign = document.getElementById("sign");
@@ -127,7 +107,54 @@
 
     
   </script>
-  <input type="text" id="message">
+  <script>
+	window.fwSettings={
+	'widget_id':1070000000656
+	};
+	!function(){if("function"!=typeof window.FreshworksWidget){var n=function(){n.q.push(arguments)};n.q=[],window.FreshworksWidget=n}}() 
+</script>
+<script type='text/javascript' src='https://ind-widget.freshworks.com/widgets/1070000000656.js' async defer></script>
+ 
+  <!-- <script src="assets/js/voicenavigator.js"></script>
+  <script src="assets/js/autospeech.js"></script>
+   <script src="assets/js/screenreader.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", e => {
+      loader("Hi there welcome to freshtrust .Now you are in home page, click right arrow button to navigate to the Offering page. and press Enter to go into the Offering..or say offering after mic on")
+    })
+   
 
+
+    document.addEventListener("dblclick", e => {
+      loader("Hi there welcome to freshtrust .Now you are in home page, click right arrow button to navigate to the Offering page. and press Enter to go into the Offering. or say offering after mic on")
+    })
+ let cnt = -1;
+  let tags;
+  let tag_length = 0;
+  document.onkeydown = function (event) {
+    if (event.keyCode == 39) {
+      if (cnt < tag_length && cnt >= -1) {
+        cnt++;
+
+      }
+      screenreader_selector(".menu-bar a", cnt, "You reached the end  press left  arrow to go next")
+
+    }
+
+    if (event.keyCode == 37) {
+      if (cnt > -1) {
+        cnt--;
+      }
+      // console.log(cnt+": 2")
+      screenreader_selector(".menu-bar a", cnt, "You are on the top press right arrow to go next")
+
+    }
+
+    if (event.keyCode == 13) {
+      let anchorTags = document.querySelectorAll(".menu-bar a");
+      anchorTags[cnt].click();
+    }
+  }
+  </script>  -->
  
 </html>

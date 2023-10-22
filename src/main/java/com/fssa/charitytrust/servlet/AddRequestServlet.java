@@ -59,17 +59,14 @@ public class AddRequestServlet extends HttpServlet {
 			productRequestService.addproductRequest(productRequest);
 			out.println("Successfully added request");
 			
-			request.setAttribute("SuccessMsg", "Adeed request");
-			
 			
 		} catch(Exception e) {
-			request.setAttribute("ErrorMsg", e.getMessage());
-			System.out.println(e.getMessage());
+			System.out.println(e.getMessage()+"servlet");
 			out.println(e.getMessage());
 			
 		}
 	
-		doGet(request, response);;
-	}
+		doGet(request, response);	
+		}
 
 }

@@ -7,9 +7,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/book.css">
-  <link rel="stylesheet" href="assets/css/navcommon.css">
-  <link rel="stylesheet" href="assets/css/footer.css">
-  <link rel="stylesheet" href="assets/css/header.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="icon" href="../../assets/images/icon.png">
   <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700;900&display=swap" rel="stylesheet">
@@ -32,8 +29,8 @@
         <input type="text" id="search-bar" placeholder="Search product by name...">
         <!-- <button type="button" >Search</button> -->
       </div>
-      <img alt="nothing image" src="https://iili.io/JJwhZoG.gif" style="margin-left:170px;" width="880px">
-      <h1 style="margin-left:23%; font-size:50px;" >Feature Not Available Yet</h1>
+      <img alt="nothing image" src="https://iili.io/JJwhZoG.gif" style="margin-left:300px;" width="880px">
+      <h1 style="margin-left:30%; font-size:50px;" >Feature Not Available Yet</h1>
     </section>
   </div>
   <jsp:include page="footer.jsp"></jsp:include>

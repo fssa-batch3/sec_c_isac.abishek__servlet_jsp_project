@@ -8,9 +8,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/involve.css">
-  <link rel="stylesheet" href="assets/css/header.css">
-  <link rel="stylesheet" href="assets/css/footer.css">
-  <link rel="stylesheet" href="assets/css/navcommon.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="icon" href="assets/images/icon.png">
   <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700;900&display=swap" rel="stylesheet">
@@ -44,7 +41,7 @@
             return you get<br> the satisfaction of time and effort well spent.<br>
           </p>
           <!-- <a href="../volunteerpages/signup.html"> -->
-          <a id="join1"><button class="join">Create account</button></a>
+          <a id="join1"><button class="join" id="crtact">Create account</button></a>
           <!-- </a> -->
         </div>
         <img src="assets/images/buyproducts.jpg" width="600px" alt="error">
@@ -59,7 +56,7 @@
             The biggest problem for many people is finding<br> the time to volunteer. It can reduce your choices if you
             don’t have much time to spare,<br> but many busy people do find suitable opportunities.</p>
 
-          <a id="join1"><button class="join">See Works</button></a>
+          <a id="join1"><button class="join" id="seewrks">See Works</button></a>
 
         </div>
       </section>
