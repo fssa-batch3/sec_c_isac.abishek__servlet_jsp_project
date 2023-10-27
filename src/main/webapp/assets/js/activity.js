@@ -1,13 +1,12 @@
 
+
 // Get the current URL and its search parameters
- const url = window.location.search;
-const urlParams = new URLSearchParams(url);
+ const geturl = window.location.search;
+const urlParams = new URLSearchParams(geturl);
+const mobile = urlParams.get('mobile');  // Access individual query parameters
 
-// Access individual query parameters
-const mobile = urlParams.get('mobile'); // "value1"
-console.log(mobile)
 
-const url2 = "http://localhost:8080/charitytrust-webapp/ViewActivityServlet?contact="+mobile;
+     const url = "http://localhost:8080/charitytrust-webapp/ViewActivityServlet?contact="+mobile;
                 axios.get(url2)
                 .then(function (response) {
              // handle success

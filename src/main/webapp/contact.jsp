@@ -62,71 +62,76 @@
 	String email=(String)sess.getAttribute("email");
     
     %>
-     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
    <script src="assets/js/contact.js"></script>
-  <!-- <script src="assets/js/screenreader.js"></script>
+<script src="assets/js/screenreader.js"></script>
   <script src="assets/js/contentreader.js"></script>
     <script src="assets/js/autospeech.js"></script>
+    <script src="assets/js/voicetotext.js"></script> 
 
 
   <script>
-    let cnt = -1;
-    let tags;
-    let tag_length = 0;
-
-
-    let cnts = -1;
-    let tag;
-    let tags_length = 0;
+   let currentIndex = -1; // Initialize the current index for navigation.
+  let  currenttag;
+  let totalTagCount = 0;
+  
+  
+  let cnts = -1;
+  let tag;
+  let tags_length=0;
 
     document.onkeydown = function (event) {
-      if (event.keyCode == 39) {
-        if (cnt < tag_length && cnt >= -1) {
-          cnt++;
+    // For nav bar
+	  if (event.keyCode == 39) { // Right arrow key
+    if (currentIndex < totalTagCount && currentIndex >= -1) { // total tag is intialy zero  after the first screenreader js return the value
+      currentIndex++;
+      console.log(currentIndex);
+    }
+    screenreader_selector(".menu-bar a", currentIndex, "You've reached the end. Press the left arrow to go back.");
+  }
 
-        }
-        screenreader_selector(".side-nav a", cnt, "You reached the end")
+  if (event.keyCode == 37) { // Left arrow key
+    if (currentIndex > -1) {
+      currentIndex--;
+    }
+    screenreader_selector(".menu-bar a", currentIndex, "You are at the top. Press the right arrow to go down."); //screenreaderpage
+  }
 
+  if (event.keyCode == 13) { // Enter key
+    let anchorTags = document.querySelectorAll(".menu-bar a");
+    anchorTags[currentIndex].click();
+  }
+	  //nav bar ends
+	  
+    if (event.keyCode == 40) {
+      if (cnts < tags_length && cnts >= -1) {
+        cnts++;
+        console.log(cnts)
       }
-
-      if (event.keyCode == 37) {
-        if (cnt > -1) {
-          cnt--;
-        }
-        // console.log(cnt+": 2")
-        screenreader_selector(".side-nav a", cnt, "You are on the top")
-
+      screenreader_content("h3,button", cnts, "You reached the end") // contentreaderpage
+     
+    }
+   
+    if (event.keyCode == 38) {
+      if (cnts > -1) {
+        cnts--;
+        console.log(cnts)
       }
-      if (event.keyCode == 40) {
-        if (cnts < tags_length && cnts >= -1) {
-          cnts++;
-        }
-        screenreader_content("h3,button", cnts, "You reached the end")
+      // console.log(cnt+": 2")
+      screenreader_content("h3,button", cnts, "You are on the top")
+      
+    }
+ 
+    if (event.keyCode == 16) {
+      let contentanchor=document.querySelectorAll("h3,button")
+      contentanchor[cnts].click();
+    }
+  
+     // if (event.keyCode == 220) {
+       // let messagevalue = document.getElementById("message").value
+        //let speakmessagevalue  = new SpeechSynthesisUtterance(messagevalue);
+        //speechSynthesis.speak(speakmessagevalue );
 
-      }
-
-      if (event.keyCode == 38) {
-        if (cnts > -1) {
-          cnts--;
-        }
-        // console.log(cnt+": 2")
-        screenreader_content("h3,button", cnts, "You are on the top")
-
-      }
-      if (event.keyCode == 13) {
-        let anchorTags = document.querySelectorAll(".side-nav a");
-        anchorTags[cnt].click();
-      }
-      if (event.keyCode == 16) {
-        let contentanchor = document.querySelectorAll("h3,button")
-        contentanchor[cnts].click();
-      }
-      if (event.keyCode == 220) {
-        let vrr = document.getElementById("message").value
-        let iam = new SpeechSynthesisUtterance(vrr);
-        speechSynthesis.speak(iam);
-
-      }
+     // }
 
     };
 
@@ -153,6 +158,6 @@
 
   })
 </script>
-<script src="assets/js/voicetotext.js"></script>  -->
+ 
 
 </html>

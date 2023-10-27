@@ -27,17 +27,17 @@
 			<h1>Book Now</h1>
 			<img src="assets/images/donateus.jpg" alt="" width="425px" class="bookimg ">
 			<!-- </div> -->
-			<form id="register">
+			<form id="register" method="post" >
 				<label for="name">Name:</label>
-				<input type="text" id="name" name="name" required pattern="[a-zA-Z]+"
+				<input type="text" id="name" name="name" required pattern="[a-zA-Z ]+"
 					title="name must only in alphabets">
 				<label for="email">Email:</label>
 				<input type="email" id="email" name="email" required>
 				<label for="mobile">Mobile</label>
 				<input type="text" id="mobile" name="mobile" required pattern="[0-9]\d*" maxlength="10"
 					title="mobile number must be 10 digit number">
-				<label for="mobile">booking date</label>
-				<input type="text" id="calender" name="mobile" required>
+				<label for="calender">booking date</label>
+				<input type="text" id="calender" name="calender" required>
 				<button id="submit" > submit</button>
 			</form>
 
@@ -45,5 +45,15 @@
 	</div>
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
+<script>
 
+const today = new Date();
+console.log(today);
+// const today = new Date();
+$('#calender').datepicker({
+	minDate: today
+});
+</script>
+ <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="assets/js/bookHospital.js"></script>
 </html>

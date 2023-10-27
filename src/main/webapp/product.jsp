@@ -65,8 +65,10 @@
 					<p><%=ele.get(2) %></p>
 					
 					
+					
 					<a href="contact.jsp?EventName=<%=name %>&productName=<%=ele.get(0) %>">
 					<%
+					
 					if(email == null){
 					%>
 					<buttons class="join"><%=ele.get(0)%></button>
@@ -123,79 +125,22 @@ searchbox.addEventListener("input", (e) => {
   })
 })
 </script>
- <!-- <script src="assets/js/screenreader.js"></script>
+<script src="assets/js/screenreader.js"></script>
   <script src="assets/js/contentreader.js"></script>
     <script src="assets/js/autospeech.js"></script>
     <script src="assets/js/voicenavigator.js"></script>
-   <script>
-    let cnt = -1;
-    let tags;
-    let tag_length = 0;
-
-
-    let cnts = -1;
-    let tag;
-    let tags_length = 0;
-
-    document.onkeydown = function (event) {
-      if (event.keyCode == 39) {
-        if (cnt < tag_length && cnt >= -1) {
-          cnt++;
-        }
-        screenreader_selector(".side-nav a", cnt, "You reached the end")
-
-      }
-
-      if (event.keyCode == 37) {
-        if (cnt > -1) {
-          cnt--;
-        }
-        // console.log(cnt+": 2")
-        screenreader_selector(".side-nav a", cnt, "You are on the top")
-
-      }
-      if (event.keyCode == 40) {
-        if (cnts < tags_length && cnts >= -1) {
-          cnts++;
-        }
-        screenreader_content(".products a", cnts, "You reached the end")
-
-      }
-
-      if (event.keyCode == 38) {
-        if (cnts > -1) {
-          cnts--;
-        }
-        // console.log(cnt+": 2")
-        screenreader_content(".products a", cnts, "You are on the top")
-
-      }
-      if (event.keyCode == 13) {
-        let anchorTags = document.querySelectorAll(".side-nav a");
-        console.log(anchorTags[cnt]);
-        anchorTags[cnt].click();
-
-      }
-      if (event.keyCode == 16) {
-        let contentanchor = document.querySelectorAll(".products a")
-        contentanchor[cnts].click();
-      }
-
-    };
-
-  </script>
 
 
   <script>
-    document.addEventListener('keydown', function (event) {
-      if (event.keyCode >= 37 && event.keyCode <= 40) {
-        event.preventDefault();
-      }
-    });
-
-  </script>
-
-  <script>
+  let currentIndex = -1; // Initialize the current index for navigation.
+  let  currenttag;
+  let totalTagCount = 0;
+  
+  
+  let cnts = -1;
+  let tag;
+  let tags_length=0;
+  
     document.addEventListener("DOMContentLoaded", e => {
       loader("Hi there now you are in product page use up arrow and down arrow to navigate by hearing the suitable product and Click the shift button to get product or say the product name after mic on")
 
@@ -205,8 +150,64 @@ searchbox.addEventListener("input", (e) => {
       loader("Hi there now you are in product page use up arrow and down arrow to navigate by hearing the suitable product and Click the shift button to get product")
 
     })
+document.onkeydown = function (event) {
+	  // For nav bar
+	  if (event.keyCode == 39) { // Right arrow key
+    if (currentIndex < totalTagCount && currentIndex >= -1) { // total tag is intialy zero  after the first screenreader js return the value
+      currentIndex++;
+      console.log(currentIndex);
+    }
+    screenreader_selector(".menu-bar a", currentIndex, "You've reached the end. Press the left arrow to go back.");
+  }
 
+  if (event.keyCode == 37) { // Left arrow key
+    if (currentIndex > -1) {
+      currentIndex--;
+    }
+    screenreader_selector(".menu-bar a", currentIndex, "You are at the top. Press the right arrow to go down."); //screenreaderpage
+  }
 
-  </script>  -->
+  if (event.keyCode == 13) { // Enter key
+    let anchorTags = document.querySelectorAll(".menu-bar a");
+    anchorTags[currentIndex].click();
+  }
+	  //nav bar ends
+	  
+    if (event.keyCode == 40) {
+      if (cnts < tags_length && cnts >= -1) {
+        cnts++;
+        console.log(cnts)
+      }
+      screenreader_content(".products a", cnts, "You reached the end") // contentreaderpage
+     
+    }
+   
+    if (event.keyCode == 38) {
+      if (cnts > -1) {
+        cnts--;
+        console.log(cnts)
+      }
+      // console.log(cnt+": 2")
+      screenreader_content(".products a", cnts, "You are on the top")
+      
+    }
+ 
+    if (event.keyCode == 16) {
+      let contentanchor=document.querySelectorAll(".products a")
+      contentanchor[cnts].click();
+    }
+  
+  };
+
+  </script> 
+  <script>
+      document.addEventListener('keydown', function(event) {
+    if (event.keyCode >= 37 && event.keyCode <= 40) {
+      event.preventDefault();
+    }
+  });
+  
+  
+  </script> 
   
 </html>

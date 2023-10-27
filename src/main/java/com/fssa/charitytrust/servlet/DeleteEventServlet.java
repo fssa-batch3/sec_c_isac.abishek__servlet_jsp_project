@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fssa.charitytrust.dao.EventDao;
 import com.fssa.charitytrust.dao.ProductDao;
-import com.fssa.charitytrust.service.EventServiceLayer;
+import com.fssa.charitytrust.service.EventService;
 import com.fssa.charitytrust.service.ProductServiceLayer;
 import com.fssa.charitytrust.validator.EventValidator;
 import com.fssa.charitytrust.validator.ProductValidator;
@@ -41,7 +41,7 @@ public class DeleteEventServlet extends HttpServlet {
 			EventValidator eventValidator = new EventValidator();
 			EventDao eventDao = new EventDao();
 			
-			EventServiceLayer eventService = new EventServiceLayer(eventValidator, eventDao);
+			EventService eventService = new EventService(eventValidator, eventDao);
 			eventService.deleteEvent(name);
 			RequestDispatcher dis = request.getServletContext().getRequestDispatcher("/EventServlet");
 			dis.forward(request, response);

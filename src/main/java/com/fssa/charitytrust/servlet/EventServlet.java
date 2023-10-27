@@ -15,7 +15,7 @@ import org.json.JSONArray;
 
 import com.fssa.charitytrust.dao.EventDao;
 import com.fssa.charitytrust.model.Event;
-import com.fssa.charitytrust.service.EventServiceLayer;
+import com.fssa.charitytrust.service.EventService;
 import com.fssa.charitytrust.validator.EventValidator;
 
 /**
@@ -33,7 +33,7 @@ public class EventServlet extends HttpServlet {
 			EventValidator eventValidator = new EventValidator();
 			EventDao eventDao = EventDao.getEventDao();
 
-			EventServiceLayer eventService = new EventServiceLayer(eventValidator, eventDao);
+			EventService eventService = new EventService(eventValidator, eventDao);
 
 			List<Event> eventList = eventService.viewEvent();
 
@@ -47,7 +47,7 @@ public class EventServlet extends HttpServlet {
 			
 
 		} catch (Exception e) {
-
+			out.println(e.getMessage());
 		}
 		
 
@@ -56,10 +56,6 @@ public class EventServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		
-		
-		
-		
 	}
 
 }

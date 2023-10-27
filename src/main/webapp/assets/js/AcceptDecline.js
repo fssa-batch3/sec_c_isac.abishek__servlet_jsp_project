@@ -1,47 +1,49 @@
-
- const url = "http://localhost:8080/charitytrust-webapp/UpdateRequestServlet";
-                axios.get(url)
-                .then(function (response) {
-             // handle success
-                 console.log(response.data);
-                 
-               viewRequest(response.data);
-               }) 
-               .catch(function (error) {
-             // handle error
-               console.log(error);
-               })
-    function addRequest(phone,val) {
-		
+async function fetchrequests(){
+	const url = "http://localhost:8080/charitytrust-webapp/UpdateRequestServlet"
+	try{
+		 const response= await fetch(url, {
+            method: 'GET', // Assuming you are making a GET request
+        })
+		 if (response.ok) {
+			const data= await response.json()
+           viewRequest(data)
+			  
+		 }
+		 else{
+			 throw new Error(`HTTP error! Status: ${response.status}`);
+		 }
+	}catch(error){
+		console.log(error);
+	}
+}
+ fetchrequests();
+   async function addRequest(phone,val) {
+		 try{
 		   	 const url = "http://localhost:8080/charitytrust-webapp/UpdateRequestServlet?mobileNo="+phone+"&isactive="+val;
-                axios.post(url)
-                .then(function (response) {
-             // handle success
-             const serverMsg = response.data;
-             console.log(serverMsg);
-             if(serverMsg.trim()==="failed"){
-				 Notify.error("User still havent verified");
-				 
-			 }
-			 if(serverMsg.trim()==="declined")  {
-				  Notify.error("Request Declined");
-				 
-				
-			 }
-			 if(serverMsg.trim()==="success"){
-				 Notify.success("success request added");
-			 }
-      
-               }) 
-               .catch(function (error) {
-             // handle error
-               console.log(error);
-               })
+             const response=  await fetch(url, {
+            method: 'POST', // Assuming you are making a GET request
+        });
+        if (response.ok) {
+          let serverMsg = await response.text(); 
+         serverMsg = serverMsg.trim();
+
+       serverMsg === "failed"? Notify.error("User still haven't verified"): serverMsg === "declined"? 
+       Notify.error("Request Declined"): serverMsg === "success"? 
+       Notify.success("Success request added"): null; 
+
+     }
+     else{ 
+          throw new Error(`HTTP error! Status: ${response.status} and ${response}` );
+	 }
+        }
+        catch(error){
+			console.log(error);
+		}       
 		  
-           }
+ }
           function viewRequest(ele) {
 	     
-		   	sec2=document.querySelector("tbody");
+		   let sec2=document.querySelector("tbody");
 		  let eventData = "";
 		  ele.forEach((e)=>{
 			  eventData +=

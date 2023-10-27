@@ -106,12 +106,7 @@ body {
 }
 
 /* drop down style  */
-.dropdown-menu {
-    position: relative;
-    right: 250px;
-    display: none;
-    width: 350px;
-}
+
 
 .dropdown1 {
     margin-top: 75px;
@@ -132,7 +127,7 @@ body {
 
 .hos1 {
     display: flex;
-    justify-content: space-evenly;
+    /*justify-content: space-evenly;*/
     padding-top: 40px;
     padding-bottom: 60px;
     animation-name: slide;
@@ -140,6 +135,7 @@ body {
 }
 
 .hos1 img {
+	margin-left:150px;
     border-radius: 20px;
     transition: 0.5s;
     animation-duration: 2s;
@@ -149,7 +145,7 @@ body {
 
 .hos1 p {
     padding-top: 10px;
-    margin-left: 120px;
+    margin-left: 150px;
     width: 500px;
     font-family: 'Merienda', cursive;
     font-size: 20px;

@@ -6,6 +6,7 @@ btn.addEventListener("click", e => {
                 .then(function (response) {
              // handle success
                  console.log(response.data);
+                 localStorage.removeItem("accessblity")
                   window.location.href = "index.jsp"
                
                }) 

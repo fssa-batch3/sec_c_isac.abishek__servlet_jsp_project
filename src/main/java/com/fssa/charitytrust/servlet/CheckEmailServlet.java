@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.fssa.charitytrust.dao.UserDAO;
 import com.fssa.charitytrust.exceptions.DaoException;
 import com.fssa.charitytrust.exceptions.ServiceException;
+import com.fssa.charitytrust.exceptions.UserValidatorError;
 import com.fssa.charitytrust.service.UserService;
 
 /**
@@ -54,16 +55,21 @@ public class CheckEmailServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		try {
-			boolean result = service.checkMailAndPassword(email, pass);
-
-			if (result == true) {
-				session.setAttribute("email", email);
-				out.print(result);
-			} else {
-				out.print("Email or Password is wrong");
-			}
+		        boolean active= service.checkMailAndPassword(email, pass);
+		        System.out.println(active);
+		        if(active) {
+		        	session.setAttribute("email", email);
+					response.setStatus(HttpServletResponse.SC_OK);
+					out.print("Successfully LoggedIn");
+		        }
+		        else {
+		        	out.print(UserValidatorError.UNABLE_TO_LOGIN);
+		        }
+				
+		
 		} catch (ServiceException e) {
-			out.print(e.getMessage());
+			System.out.println(e.getMessage());
+			out.print(UserValidatorError.UNABLE_TO_LOGIN);
 		}
 		doGet(request, response);
 	}

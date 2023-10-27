@@ -49,8 +49,6 @@ public class EditProfileServlet extends HttpServlet {
 		String name=(String)request.getParameter("name");
 		String email=(String)request.getParameter("email");
 		String mail=email.trim();
-		System.out.println(email+"servl");
-		String aadhaar=(String)request.getParameter("aadhaar");
 		String mobile=(String)request.getParameter("mobile");
 		String address=(String)request.getParameter("address");
 		boolean accessblity=Boolean.parseBoolean(request.getParameter("accessblity"));
@@ -58,7 +56,6 @@ public class EditProfileServlet extends HttpServlet {
 		User user= new User();
 		user.setEmail(mail);
 		user.setUsername(name);
-		user.setAadhaarNumber(aadhaar);
 		user.setContactNumber(mobile);
 		user.setAddress(address);
 		user.setAccessblity(accessblity);

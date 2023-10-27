@@ -57,11 +57,13 @@ public class AddRequestServlet extends HttpServlet {
 		try {
 			
 			productRequestService.addproductRequest(productRequest);
+			response.setStatus(HttpServletResponse.SC_OK);
+			
 			out.println("Successfully added request");
 			
 			
 		} catch(Exception e) {
-			System.out.println(e.getMessage()+"servlet");
+			System.out.println(e.getMessage());
 			out.println(e.getMessage());
 			
 		}

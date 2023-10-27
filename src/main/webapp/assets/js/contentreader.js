@@ -1,90 +1,44 @@
-let contents;
-// function screenreader_content(selectors, cnts, messages) {
-function screenreader(cnts,messages) {
+let contents; //which element goind to selected
+function contentscreenreader(currentIndexofcontent,messages) {
 
-  //  contents = document.querySelectorAll(`${selectors}`);
-  if (cnts >=contents.length || cnts<=-1) {
+  if (currentIndexofcontent >=contents.length || currentIndexofcontent<=-1) {
+	  // current index of content is intiated with -1 if it exceeded or currentIndex of content value is  exceded elementselected array length
+	  //the message we given is araised you reached top or end
     let msg = new SpeechSynthesisUtterance(messages);
     let voices = speechSynthesis.getVoices();
     msg.voice = voices[0];
     speechSynthesis.speak(msg);
-    cnts>=contents.length?cnts = contents.length:cnts=-1
+    currentIndexofcontent>=contents.length?currentIndexofcontent = contents.length:currentIndexofcontent=-1
+     // this line for if user continously press eventhough they reached the end  or top of content
+    //we want make the current index as same -1 or total length of element selecteds length
   }
   else {
-    tag = contents[cnts].textContent;
-    let msg = new SpeechSynthesisUtterance(tag);
+    currenttag = contents[currentIndexofcontent].textContent; //got the textcontent in the current indexed element in the array
+    let msg = new SpeechSynthesisUtterance(currenttag);
     let voices = speechSynthesis.getVoices();
     msg.voice = voices[0];
     speechSynthesis.speak(msg);
   }
-  return tags_length=contents.length;
+  return tags_length=contents.length;  //giving the totaltag count as arrlength to the jsp page for if conditions
+
   
 }
-function screenreader_content(selectors, cnts, messages)  {
+function screenreader_content(selectors, currentIndexofcontent, messages)  {
   contents = document.querySelectorAll(`${selectors}`);
 
-  // let li=document.querySelectorAll(`${selector}`)
-  let userarr = JSON.parse(localStorage.getItem("user"))
-  let activeuser = localStorage.getItem("userprofile_name")
-
-  
-  // let check = 0;
-  // let check2=0
-  // if (JSON.parse(localStorage.getItem("user"))) {
-  //     console.log("user registered");
-  //     userarr.find(e => {
-  //         if (activeuser === e["user_email"]) {
-  //           check2=0
-
-  //             if (e["accessblity"] === true) {
-  //                 return check = 1
-  //             }
-  //         }
-  //         else{
-  //           check2=1
-  //       }
-  //     })
-  //     if(check2===1){
-  //       screenreader(cnts,messages)
-  //       console.log("new user not first user");
-
-
-  // }
-  //     if (check == 1) {
-  //       screenreader(cnts,messages)
-  //     }
-  //     else {
-      
-  //         console.log("assecblity false");
-  //     }
-  // }
-  // else {
-  //   screenreader(cnts,messages)
-  //     console.log("firtst user");
-  // }
-
-
-
-
-
-
-
-
-  let x=0
-  if(localStorage.getItem("userprofile_name")){
-      userarr.find(e=>{
-          if(e["user_email"]===activeuser){
-             if(e["accessblity"]===true){
-              x=1
-             }
-            
+   let newUserValue=0
+    if (localStorage.getItem("accessblity")) {
+	  if(localStorage.getItem("accessblity")=="active"){
+          newUserValue = 1;
           }
-      })
+          else{
+			  console.log("Their accessibility is off");
+		  }
+       
+  }  else{
+    contentscreenreader(currentIndexofcontent,messages) // If there is no user logged in screenreader nav on
   }
-  else{
-    screenreader(cnts,messages)
-  }
-  if(x===1){
-    screenreader(cnts,messages)
+  if(newUserValue===1){
+    contentscreenreader(currentIndexofcontent,messages) // if the users  accessblity is on  screenreader nav will on
   }
 }

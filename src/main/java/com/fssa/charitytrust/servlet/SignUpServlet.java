@@ -57,27 +57,24 @@ public class SignUpServlet extends HttpServlet {
 		String password=request.getParameter("pass");
 		String contact=request.getParameter("contact");
 		String address=request.getParameter("address");
-//		String aadhaar=request.getParameter("aadhaar");
 		UserRole role = UserRole.valueOf(request.getParameter("type"));
 		
 		user.setUsername(name);
 		user.setEmail(email);
 		user.setPassword(password);
 		user.setContactNumber(contact);
-//		user.setAadhaarNumber(aadhaar);
 		user.setAddress(address);
 		user.setRole(role);
 		PrintWriter out= response.getWriter();
 		try {
-		boolean res=UserService.AddUser(user);
-		
-			System.out.println();
-			out.print(res);
+		UserService.AddUser(user);
+		response.setStatus(HttpServletResponse.SC_OK);
+		out.print("Successfully Added User");
 			
 		} catch (Exception e) {
 			out.print(e.getMessage());
 			System.out.println(e.getMessage());
-			e.printStackTrace();
+			
 		}
 		
 		

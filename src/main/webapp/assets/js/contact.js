@@ -1,7 +1,5 @@
  	  let place = document.getElementById("place").value;
-          let product = document.getElementById("product").value;
-         
-         
+      let product = document.getElementById("product").value;
  
  
  document.querySelector("form").addEventListener("submit",(e)=>{
@@ -19,8 +17,7 @@
            Product:product.toString(),
          }).then(function (res){
 			 
-			 swal("success!", "success", "success");
-			  let sent = new SpeechSynthesisUtterance("message sent to us... You will redirect to index page we wil contact you soon");
+			 swal("success!", "We recieved your request contact you soon", "success");
 			 const intervalId = setInterval(() => {
              delayedAction();
              clearInterval(intervalId); // Stop the interval after the first execution
@@ -38,27 +35,28 @@
    function delayedAction(){
 	   window.location.href="index.jsp"
    }
-   function addRequest() {
+  async function addRequest() {
 	    let phone = document.getElementById("phone").value;
-	
-		   	 const url = "http://localhost:8080/charitytrust-webapp/AddRequestServlet?place="+place+"&product="+product+"&contactNumber="+phone;
-                axios.post(url)
-                .then(function (response) {
-             // handle success
-                 console.log(response.data);
-                 if(response.data.trim()=="Successfully added request"){
-					 
-					  sendEmailToAdmin();
-				 }
-				 else{
-					  swal("error!", response.data, "error");
-				 }
-              
-               }) 
-               .catch(function (error) {
-             // handle error
-             swal("error!", response.data, "error");
-               console.log(error);
-               })
+	try {
+        const response = await fetch(`http://localhost:8080/charitytrust-webapp/AddRequestServlet?place=${place}&product=${product}&contactNumber=${phone}`, {
+            method: 'POST', // Assuming you are making a POST request
+        });
+           console.log(response)
+        if (response.ok) {
+            const responseData = await response.text(); // Assuming the response is plain text
+          
+            console.log('Status Code:', response.status);
+            console.log('Response Data:', responseData);
+
+            responseData.trim() === "Successfully added request"?(sendEmailToAdmin()):(swal("Error!", responseData, "error"))
+                
+           
+        } 
+        else{
+			throw new Error(`HTTP error! Status: ${response.status}`);
+		}
+    } catch (error) {
+        console.log('Fetch Error:', error);
+    }
  
            }

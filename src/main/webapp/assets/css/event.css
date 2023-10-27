@@ -106,13 +106,7 @@ body {
 
 }
 
-/* drop down style  */
-.dropdown-menu {
-    position: relative;
-    right: 250px;
-    display: none;
-    width: 350px;
-}
+
 
 .dropdown1 {
     margin-top: 75px;

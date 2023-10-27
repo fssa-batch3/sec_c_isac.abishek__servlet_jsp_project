@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fssa.charitytrust.dao.EventDao;
 import com.fssa.charitytrust.model.Event;
-import com.fssa.charitytrust.service.EventServiceLayer;
+import com.fssa.charitytrust.service.EventService;
 import com.fssa.charitytrust.validator.EventValidator;
 
 /**
@@ -59,7 +59,7 @@ public class AddEventServlet extends HttpServlet {
 		EventValidator eventValidator = new EventValidator();
 		EventDao eventDao = new EventDao();
 		
-		EventServiceLayer eventService = new EventServiceLayer(eventValidator, eventDao);
+		EventService eventService = new EventService(eventValidator, eventDao);
 		Event event =new Event( eventName, eventLocation,eventOrganizer,eventContact,  eventImage,eventDate,eventDescription) ;
         PrintWriter out = response.getWriter();
 		try {

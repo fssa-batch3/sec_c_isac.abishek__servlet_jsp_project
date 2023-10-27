@@ -39,10 +39,11 @@
         <!-- <button type="button" >Search</button> -->
       
       </div>
-        <img alt="nothing image" src="https://iili.io/JJwhZoG.gif" style="margin-left:170px;" width="880px">
-      <h1 style="margin-left:23%; font-size:50px;" >Feature Not Available Yet</h1>
+
     </section>
   </div>
   <jsp:include page="footer.jsp"></jsp:include>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="assets/js/viewHospital.js"></script>
 </html>

@@ -19,7 +19,7 @@ body {
    justify-content: space-between; */
     /* margin: auto; */
     margin-top: 20px;
-    margin-left: 50px;
+    margin-left: 250px;
    border-radius: 20px;
     padding: 50px;
     padding-bottom: 0px;
@@ -39,8 +39,8 @@ body {
 }
 .bookimg{
     position: absolute;
-    top:200px;
-    left: 530px;
+    top:450px;
+    right: 300px;
 }
 h1 {
     text-align: center;

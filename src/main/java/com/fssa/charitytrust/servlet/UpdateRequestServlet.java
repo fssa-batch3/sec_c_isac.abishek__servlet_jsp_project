@@ -54,7 +54,7 @@ public class UpdateRequestServlet extends HttpServlet {
 //			RequestDispatcher dis = request.getServletContext().getRequestDispatcher("/adminViewRequest.jsp");
 //			dis.forward(request, response);
 			JSONArray ProductRequestArray = new JSONArray(ProductRequest);
-
+			response.setStatus(HttpServletResponse.SC_OK);
 			out.print(ProductRequestArray.toString());
 			out.flush();
 		} catch (Exception e) {
@@ -68,7 +68,7 @@ public class UpdateRequestServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		String accepted="Accepted";
 		String declined="Declined";
 		String contact = request.getParameter("mobileNo");
@@ -100,6 +100,7 @@ public class UpdateRequestServlet extends HttpServlet {
 					}
 
 			}
+			response.setStatus(HttpServletResponse.SC_OK);
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

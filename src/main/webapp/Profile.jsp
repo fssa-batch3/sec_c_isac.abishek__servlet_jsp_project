@@ -6,6 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>Profile</title>
   <link rel="stylesheet" href="/charitytrust-webapp/assets/css/profile.css">
+   <script type="text/javascript" src="assets/js/sweetalert.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link
@@ -43,9 +44,7 @@
     <div class="name2 name">
     <i class="fa-solid fa-mobile-screen profileicons"></i><label for="mobile_no">mobile_no : </label><br>
    <input type="text" id="mobile_no" pattern="[0-9]\d*" maxlength="10" onkeypress="return event.charCode >= 48 && event.charCode <= 57"  disabled><br><br>
-    <!-- <p id="mobile_no"></p> -->
-    <!--<i class="fa-solid fa-id-card profileicons"></i><label for="addhar">addhar : </label><br>
-    <!--<input type="text" id="addhar" pattern="[0-9]{12,12}+" onkeypress="return event.charCode >= 48 && event.charCode <= 57" disabled><br><br>-->
+   
     <i class="fa-solid fa-id-card profileicons"></i><label for="addhar">role : </label><br>
     <input type="text" id="role" disabled><br><br>
     <!-- <p id="addhar"></p> -->
@@ -59,7 +58,6 @@
     
      
      <button id="edit_btn" >edit</button>
-     <!-- <a href="pages/../index.html"><button id="logoutbtn">logout</button></a> -->
      <button id="deletebtn">log out</button>
     </form>
     <button id="activity" style="font-size: 11px;">My activities</button>

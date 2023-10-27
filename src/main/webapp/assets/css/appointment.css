@@ -5,7 +5,6 @@
 }
 
 body {
-    margin-top: 120px;
     font-family: 'Merienda', cursive;
     background-image: url(../images/bodybg.jpg);
     background-attachment: fixed;
@@ -37,11 +36,9 @@ h1 {
     background-color: #fff;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
-    margin: 10px;
     text-align: center;
     padding: 20px;
     border-radius: 5px;
-    margin-left: 50px;
 }
 
 .card img {
