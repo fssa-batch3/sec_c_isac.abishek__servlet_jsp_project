@@ -25,50 +25,53 @@ import com.fssa.charitytrust.validator.ProductRequestValidator;
 @WebServlet("/AddRequestServlet")
 public class AddRequestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AddRequestServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+	public AddRequestServlet() {
+		super();
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String eventName =request.getParameter("place");
-		String product =request.getParameter("product");
-		String contact =request.getParameter("contactNumber");
-		
-		ProductRequest productRequest = new ProductRequest(eventName,product,contact);
-		ProductRequestValidator productRequestValidator =new ProductRequestValidator();
-		ProductRequestDao productRequestDao= new ProductRequestDao();
-		ProductRequestService productRequestService = new ProductRequestService(productRequestValidator, productRequestDao);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String eventName = request.getParameter("place");
+		String product = request.getParameter("product");
+		String contact = request.getParameter("contactNumber");
+
+		ProductRequest productRequest = new ProductRequest(eventName, product, contact);
+		ProductRequestValidator productRequestValidator = new ProductRequestValidator();
+		ProductRequestDao productRequestDao = new ProductRequestDao();
+		ProductRequestService productRequestService = new ProductRequestService(productRequestValidator,
+				productRequestDao);
 		PrintWriter out = response.getWriter();
 		try {
-			
+
 			productRequestService.addproductRequest(productRequest);
 			response.setStatus(HttpServletResponse.SC_OK);
-			
+
 			out.println("Successfully added request");
-			
-			
-		} catch(Exception e) {
+
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			out.println(e.getMessage());
-			
+
 		}
-	
-		doGet(request, response);	
-		}
+
+		doGet(request, response);
+	}
 
 }

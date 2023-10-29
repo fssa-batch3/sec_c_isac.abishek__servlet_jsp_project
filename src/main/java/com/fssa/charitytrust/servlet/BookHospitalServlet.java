@@ -24,61 +24,62 @@ import com.fssa.charitytrust.service.BookHospitalService;
 @WebServlet("/BookHospitalServlet")
 public class BookHospitalServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public BookHospitalServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+	public BookHospitalServlet() {
+		super();
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		String name =request.getParameter("name");
-		String contact =request.getParameter("contact");
-		String email =request.getParameter("email");
-		String hospitalName =request.getParameter("hospitalName");
-		
-		 String dateString = request.getParameter("bookDate"); 
-		 
-		 
-		  // Define a DateTimeFormatter for the input format
-	        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+		String name = request.getParameter("name");
+		String contact = request.getParameter("contact");
+		String email = request.getParameter("email");
+		String hospitalName = request.getParameter("hospitalName");
 
-	        // Parse the input string into a LocalDate object using the input format
-	        LocalDate localDate = LocalDate.parse(dateString, inputFormatter);
+		String dateString = request.getParameter("bookDate");
 
-	        // Define a DateTimeFormatter for the desired output format
-	        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+		// Define a DateTimeFormatter for the input format
+		DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
-	        // Format the LocalDate with the desired output format
-	        String formattedDate = localDate.format(outputFormatter);
-	        
-	        LocalDate localDat = LocalDate.parse(formattedDate, outputFormatter);
+		// Parse the input string into a LocalDate object using the input format
+		LocalDate localDate = LocalDate.parse(dateString, inputFormatter);
 
-		
-		BookHospital obj =new BookHospital(name,email,hospitalName,contact,localDat);
-	
+		// Define a DateTimeFormatter for the desired output format
+		DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+
+		// Format the LocalDate with the desired output format
+		String formattedDate = localDate.format(outputFormatter);
+
+		LocalDate localDat = LocalDate.parse(formattedDate, outputFormatter);
+
+		BookHospital obj = new BookHospital(name, email, hospitalName, contact, localDat);
+
 		try {
 			BookHospitalService.addBooking(obj);
 			out.println("Successfully Booked");
 		} catch (ServiceException e) {
-			
+
 			out.println(e.getMessage());
 		}
-		
-		doGet(request, response);	
+
+		doGet(request, response);
 	}
 
 }

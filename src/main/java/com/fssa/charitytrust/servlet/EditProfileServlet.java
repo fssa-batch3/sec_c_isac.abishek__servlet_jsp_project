@@ -25,56 +25,57 @@ import com.fssa.charitytrust.service.UserService;
 @WebServlet("/EditProfileServlet")
 public class EditProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public EditProfileServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	public EditProfileServlet() {
+		super();
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String name=(String)request.getParameter("name");
-		String email=(String)request.getParameter("email");
-		String mail=email.trim();
-		String mobile=(String)request.getParameter("mobile");
-		String address=(String)request.getParameter("address");
-		boolean accessblity=Boolean.parseBoolean(request.getParameter("accessblity"));
-		
-		User user= new User();
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		String mail = email.trim();
+		String mobile = request.getParameter("mobile");
+		String address = request.getParameter("address");
+		boolean accessblity = Boolean.parseBoolean(request.getParameter("accessblity"));
+
+		User user = new User();
 		user.setEmail(mail);
 		user.setUsername(name);
 		user.setContactNumber(mobile);
 		user.setAddress(address);
 		user.setAccessblity(accessblity);
-		UserService obj = new UserService();
 		PrintWriter out = response.getWriter();
 		try {
-			obj.updateUser(user);
-			obj.setAccessblity(mail, accessblity);
-			List<User> userList=obj.getUserbyEmail(mail);
-            JSONArray accountJSonArray = new JSONArray(userList);
-			
-       	
+			UserService.updateUser(user);
+			UserService.setAccessblity(mail, accessblity);
+			List<User> userList = UserService.getUserbyEmail(mail);
+			JSONArray accountJSonArray = new JSONArray(userList);
+
 			out.print(accountJSonArray.toString());
 			out.flush();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }

@@ -22,40 +22,43 @@ import com.fssa.charitytrust.validator.ProductValidator;
 @WebServlet("/DeleteEventServlet")
 public class DeleteEventServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public DeleteEventServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String name=(String)request.getParameter("EventName");
+	public DeleteEventServlet() {
+		super();
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String name = (String) request.getParameter("EventName");
 		try {
 			EventValidator eventValidator = new EventValidator();
 			EventDao eventDao = new EventDao();
-			
+
 			EventService eventService = new EventService(eventValidator, eventDao);
 			eventService.deleteEvent(name);
 			RequestDispatcher dis = request.getServletContext().getRequestDispatcher("/EventServlet");
 			dis.forward(request, response);
-			
-		}catch (Exception e) {
-			
+
+		} catch (Exception e) {
+
 		}
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		doGet(request, response);
 	}
 

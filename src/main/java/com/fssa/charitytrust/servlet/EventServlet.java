@@ -39,17 +39,13 @@ public class EventServlet extends HttpServlet {
 
 			request.setAttribute("eventList", eventList);
 			JSONArray accountsJSonArray = new JSONArray(eventList);
-			
-        	
+
 			out.println(accountsJSonArray.toString());
 //			out.flush();
-		
-			
 
 		} catch (Exception e) {
 			out.println(e.getMessage());
 		}
-		
 
 	}
 

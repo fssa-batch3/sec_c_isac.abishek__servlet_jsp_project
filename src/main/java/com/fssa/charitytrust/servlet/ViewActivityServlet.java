@@ -29,46 +29,48 @@ import com.fssa.charitytrust.validator.ProductRequestValidator;
 @WebServlet("/ViewActivityServlet")
 public class ViewActivityServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ViewActivityServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String contact= request.getParameter("contact");
-		ProductRequestDao objDAO=new ProductRequestDao();
-		ProductRequestValidator validator=new  ProductRequestValidator();
-	ProductRequestService obj=new ProductRequestService(validator,objDAO);
-	ProductRequest requestObj= new ProductRequest();
-	PrintWriter out = response.getWriter();
-	List<ProductRequest> requestList= null;
-	try {
-		requestList=obj.findRequestByConatactNo(contact);
-		HttpSession session = request.getSession(false);
-		
-		session.setAttribute("contact", contact);
-		 JSONArray accountJSonArray = new JSONArray(requestList);
-			
-	       	
+	public ViewActivityServlet() {
+		super();
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String contact = request.getParameter("contact");
+		ProductRequestDao objDAO = new ProductRequestDao();
+		ProductRequestValidator validator = new ProductRequestValidator();
+		ProductRequestService obj = new ProductRequestService(validator, objDAO);
+		ProductRequest requestObj = new ProductRequest();
+		PrintWriter out = response.getWriter();
+		List<ProductRequest> requestList = null;
+		try {
+			requestList = obj.findRequestByConatactNo(contact);
+			HttpSession session = request.getSession(false);
+
+			session.setAttribute("contact", contact);
+			JSONArray accountJSonArray = new JSONArray(requestList);
+
 			out.print(accountJSonArray.toString());
 			out.flush();
-	} catch (ServiceException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+		} catch (ServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

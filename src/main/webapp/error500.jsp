@@ -16,9 +16,9 @@
     <style>
         /* Add any custom CSS styles here */
         body {
-        font-family: 'Merienda', cursive;
-            text-align: center; 
+            text-align: center;
             background-color: #f2f2f2;
+            font-family: 'Merienda', cursive;
         }
 
         .error-container {
@@ -32,7 +32,7 @@
         }
 
         .error-image {
-            max-width: 80%;
+            max-width: 75%;
             height: auto;
         }
     </style>
@@ -40,9 +40,9 @@
 <body>
 <jsp:include page="header.jsp"></jsp:include>
     <div class="error-container">
-        <h1>404 not found</h1>
-        <p>Page not available then how did you came to this page</p>
-        <img src="https://iili.io/Jf3oVs9.jpg" alt="500 Internal Server Error" class="error-image">
+        <h1>500 Internal Server Error</h1>
+        <p>Oops! Something went wrong on our server.</p>
+        <img src="https://iili.io/Jf3ofKg.png" alt="500 Internal Server Error" class="error-image">
   
     </div>
  

@@ -31,7 +31,7 @@ public class UpdateRequestServlet extends HttpServlet {
 	 */
 	public UpdateRequestServlet() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
 	/**
@@ -48,11 +48,7 @@ public class UpdateRequestServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		try {
 			List<ProductRequest> ProductRequest = productRequestService.readRequests();
-//			request.setAttribute("ProductRequest", ProductRequest);
-			// if user signed in it want to redirect to event page for now purpose it
-			// directoing to admin page
-//			RequestDispatcher dis = request.getServletContext().getRequestDispatcher("/adminViewRequest.jsp");
-//			dis.forward(request, response);
+
 			JSONArray ProductRequestArray = new JSONArray(ProductRequest);
 			response.setStatus(HttpServletResponse.SC_OK);
 			out.print(ProductRequestArray.toString());
@@ -68,36 +64,33 @@ public class UpdateRequestServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		String accepted="Accepted";
-		String declined="Declined";
+
+		String accepted = "Accepted";
+		String declined = "Declined";
 		String contact = request.getParameter("mobileNo");
 		String isAccepted = request.getParameter("isactive");
 		ProductRequestValidator productRequestValidator = new ProductRequestValidator();
 		ProductRequestDao productRequestDao = new ProductRequestDao();
 		UserDAO user = new UserDAO();
-		UserService userService =new UserService();
+		UserService userService = new UserService();
 		ProductRequestService productRequestService = new ProductRequestService(productRequestValidator,
 				productRequestDao);
 		try {
-			if(isAccepted.equalsIgnoreCase(accepted)) {
+			if (isAccepted.equalsIgnoreCase(accepted)) {
 				if (userService.checkMobileAvailable(contact)) {
 					response.getWriter().write("success");
 					productRequestService.updateProductRequest(contact, isAccepted);
-					
-				}
-				else {
+
+				} else {
 					response.getWriter().write("failed");
 				}
-			}
-			 else if(isAccepted.equalsIgnoreCase(declined)) {
-				 if (userService.checkMobileAvailable(contact)) {
-				 response.getWriter().write("declined");
-				 productRequestService.updateProductRequest(contact, isAccepted);
-				 }
-				 else {
-						response.getWriter().write("failed");
-					}
+			} else if (isAccepted.equalsIgnoreCase(declined)) {
+				if (userService.checkMobileAvailable(contact)) {
+					response.getWriter().write("declined");
+					productRequestService.updateProductRequest(contact, isAccepted);
+				} else {
+					response.getWriter().write("failed");
+				}
 
 			}
 			response.setStatus(HttpServletResponse.SC_OK);
@@ -106,7 +99,7 @@ public class UpdateRequestServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }

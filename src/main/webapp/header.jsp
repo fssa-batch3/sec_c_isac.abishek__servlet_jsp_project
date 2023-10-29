@@ -40,7 +40,7 @@
 
 
         <li><a href="involve.jsp">get involved</a></li>
-        <li><a id="inspiredlink">be inspired</a></li>
+        <li><a href="inspired.jsp">be inspired</a></li>
         <li><a id="sign">sign up</a></li>
       </ul>
     </div>
@@ -55,21 +55,19 @@
         const arr1 = "<%= email %>";
     let gethelp = document.getElementById("gethelplink");
     let sign = document.getElementById("sign");
-    let beinspired = document.getElementById("inspiredlink");
 
     if (arr1 !=="null") {
 
         gethelp.setAttribute("href", "gethelp.jsp");
         sign.setAttribute("href", "Profile.jsp");
         sign.innerText = "profile"
-        beinspired.setAttribute("href", "inspired.jsp");
+       
     }
     else {
  
       
       gethelp.setAttribute("href", "login.jsp");
       sign.setAttribute("href", "login.jsp");
-      beinspired.setAttribute("href", "login.jsp");
 
     }
 

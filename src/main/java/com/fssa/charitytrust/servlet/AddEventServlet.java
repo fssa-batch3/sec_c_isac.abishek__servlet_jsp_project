@@ -23,91 +23,82 @@ import com.fssa.charitytrust.validator.EventValidator;
 @WebServlet("/AddEventServlet")
 public class AddEventServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AddEventServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	public AddEventServlet() {
+		super();
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String eventName = request.getParameter("EventName");
 		String eventOrganizer = request.getParameter("eventOrganizer");
 		String dateString = request.getParameter("eventDate");
 		String pattern = "yyyy-MM-dd";
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
 		LocalDate eventDate = LocalDate.parse(dateString, formatter);
-		
+
 		String eventDescription = request.getParameter("eventDescription");
 		String eventImage = request.getParameter("EventImage");
 		String eventLocation = request.getParameter("eventLocation");
 		String eventContact = request.getParameter("eventContact");
 		EventValidator eventValidator = new EventValidator();
 		EventDao eventDao = new EventDao();
-		
+
 		EventService eventService = new EventService(eventValidator, eventDao);
-		Event event =new Event( eventName, eventLocation,eventOrganizer,eventContact,  eventImage,eventDate,eventDescription) ;
-        PrintWriter out = response.getWriter();
+		Event event = new Event(eventName, eventLocation, eventOrganizer, eventContact, eventImage, eventDate,
+				eventDescription);
+		PrintWriter out = response.getWriter();
 		try {
-			Event val=eventService.findEventByName(eventName);
-			if(val.getEventName()==null) {
+			Event val = eventService.findEventByName(eventName);
+			if (val.getEventName() == null) {
 				boolean isadded = eventService.addEvent(event);
-				
-				
-				if(isadded) {
-					
-					
+
+				if (isadded) {
+
 					out.println("<h1>Successfully added event details</h1>");
 					RequestDispatcher dis = request.getServletContext().getRequestDispatcher("/EventServlet");
 					dis.include(request, response);
-					
-					
-				}
-				else {
+
+				} else {
 					out.println("<h1>Successfully not added product details</h1>");
 				}
-				
-			}
-			else {
-				boolean isadded=eventService.updateEvent(event);
-                   if(isadded) {
-					
-					
+
+			} else {
+				boolean isadded = eventService.updateEvent(event);
+				if (isadded) {
+
 					out.println("<h1>Successfully updated product details</h1>");
 					RequestDispatcher dis = request.getServletContext().getRequestDispatcher("/EventServlet");
 					dis.include(request, response);
-					
-					
-				}
-				else {
+
+				} else {
 					out.println("<h1>Successfully not updated product details</h1>");
 				}
 			}
-			
-			
-			
-		}
-		catch(Exception e) {
+
+		} catch (Exception e) {
 			out.println(e.getMessage());
-			
+
 		}
-		
-		
-		doGet(request, response);
+
 	}
 
 }
